@@ -1,0 +1,15 @@
+name: zapcc-test
+on: push
+
+jobs:
+  zapcc-basic-test:
+    runs-on: ubuntu-18.04
+    container: docker://srzzumix/zapcc
+    needs: prepare
+    steps:
+    - uses: actions/checkout@master
+    - uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - run: |
+        python -c "import sys; print(sys.version)"
