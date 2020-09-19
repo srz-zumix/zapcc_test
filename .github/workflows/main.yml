@@ -5,13 +5,15 @@ jobs:
   zapcc-basic-test:
     runs-on: ubuntu-18.04
     container: docker://srzzumix/zapcc
+    env:
+        PYTHON_VERSION: 3.8
     steps:
     - uses: actions/checkout@master
     - uses: actions/setup-python@v2
       with:
-        python-version: 3.8
+        python-version: ${{ env.PYTHON_VERSION }}
     - name: Set Python environment variable
-      run: echo '::set-env name=LD_LIBRARY_PATH::${pythonLocation}/lib'
+      run: echo '::set-env name=LD_LIBRARY_PATH::${{ env.pythonLocation }}/lib'
     # - run: |
     #     echo ${RUNNER_TOOL_CACHE}
     #     cd /
