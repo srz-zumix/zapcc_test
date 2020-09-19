@@ -5,7 +5,6 @@ jobs:
   zapcc-basic-test:
     runs-on: ubuntu-18.04
     container: docker://srzzumix/zapcc
-    needs: prepare
     steps:
     - uses: actions/checkout@master
     - uses: actions/setup-python@v2
