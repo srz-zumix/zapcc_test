@@ -11,10 +11,11 @@ jobs:
       with:
         python-version: 3.8
     - name: Set Python environment variable
-      run: echo '::set-env name=LD_LIBRARY_PATH::${RUNNER_TOOL_CACHE}/Python/3.8/x64/lib'
+      run: echo '::set-env name=LD_LIBRARY_PATH::${pythonLocation}/lib'
     # - run: |
     #     echo ${RUNNER_TOOL_CACHE}
     #     cd /
     #     find . -name python*
     - run: |
+        echo ${LD_LIBRARY_PATH}
         python -c "import sys; print(sys.version)"
