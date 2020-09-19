@@ -10,5 +10,11 @@ jobs:
     - uses: actions/setup-python@v2
       with:
         python-version: 3.8
+    - name: Set Python environment variable
+      run: echo '::set-env name=LD_LIBRARY_PATH::/tmp/runner/work/_tool/Python/${{ matrix.python-version }}/x64/lib'
+    - run: |
+        echo ${RUNNER_TOOL_CACHE}
+        cd /
+        find . -name python*
     - run: |
         python -c "import sys; print(sys.version)"
